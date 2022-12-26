@@ -39,7 +39,7 @@ def get_info():
     org = data["org"] 
     asn = data["as"]
 
-    print(f'''         {WHITE}API status code: {RED}{status}\n
+    print(f'''    {WHITE}API status code: {RED}{status}\n
     {WHITE}IP Address: {RED}{ip_address}
     {WHITE}city: {RED}{city}
     {WHITE}region: {RED}{regionside}, {WHITE}({RED}{region}{WHITE})
