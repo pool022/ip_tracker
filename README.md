@@ -3,7 +3,7 @@
 
 ## How to download??
 1. copy the Github Repo `https://github.com/Ethicalgrey/ip_tracker.git`
-![Screenshot_3](https://user-images.githubusercontent.com/65472841/206374151-06c2ca55-4375-40c2-b98b-7c9d15388c33.png)
+![ip_tracker_1](https://user-images.githubusercontent.com/65472841/209490006-a504d2b7-d01a-4bd5-9dbc-ed01d93259de.png)
 2. Go to the directory you want to clone the Repo to, then type the command below
 3. `git clone https://github.com/Ethicalgrey/ip_tracker.git`
 ## How to run the ip_tracker???
