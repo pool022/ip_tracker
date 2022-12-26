@@ -1,5 +1,6 @@
-import requests
 import os
+import requests
+import argparse
 
 RED = '\033[91m'
 GREEN= '\033[92m'
@@ -12,16 +13,6 @@ WHITE= '\033[0m'
 
 def erase():
     os.system('cls' if os.name == 'nt' else 'clear')
-
-def get_ip() -> str:
-    '''
-    Prompts user to input ip.
-    :return: str
-    '''
-    erase() # clear terminal
-    ip = input("Ip Address: ").strip()
-    erase() # clear terminal
-    return ip
 
 def cwrap(data: str, type: str = 'R') -> str:
     '''
@@ -38,14 +29,12 @@ def cwrap(data: str, type: str = 'R') -> str:
         case 'WRW': # White, Red, White
             return '{}({}{}{})'.format(WHITE, RED, data, WHITE)
 
-def get_info() -> dict:
+def get_info(ip: str) -> dict:
     '''
     Request data from api and organize in dictionary.
+    :param ip: str User IP to query.
     :return: dict Response data to output.
     '''
-    # grab user input
-    ip = get_ip()
-
     # Response data
     res = requests.get(f"http://ip-api.com/json/{ip}?fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,offset,currency,isp,org,as,asname,mobile,proxy,hosting,query")
     data = res.json()
@@ -72,12 +61,11 @@ def get_info() -> dict:
         'Long':            cwrap(float(data["lat"]))
     }
 
-def display_info() -> None:
+def display_info(data: dict) -> None:
     '''
     Go through dictionary and output data to screen.
+    :param data: dict Data from api request.
     '''
-    data = get_info()
-
     # Invalid api request check.
     if not data:
         print('[!] Invalid input!')
@@ -86,7 +74,12 @@ def display_info() -> None:
     # Display dict data.
     for k, v in enumerate(data):
         print('{}{}: {}'.format(WHITE, v, data[v]))
-    
 
 if __name__=='__main__':
-    display_info()
+    argParser = argparse.ArgumentParser()
+    argParser.add_argument('ip', help='IP to query.')
+    args = argParser.parse_args()
+    # Grab data from request.
+    data = get_info(args.ip)
+    # Display data
+    display_info(data)
