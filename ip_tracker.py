@@ -24,7 +24,7 @@ WHITE= '\033[0m'
 opt = input('''
 1. Update
 2. ip tracker
-select an option 1 or 2: ''')
+select an option 1 or 2 this is a test: ''')
 
 if '1' in opt:
     print("looking for possible update")
@@ -56,7 +56,7 @@ else:
         org = data["org"] 
         asn = data["as"]
 
-        print(f'''    {WHITE}API status code: {RED}{status}\n
+        print(f'''         {WHITE}API status code: {RED}{status}\n
         {WHITE}IP Address: {RED}{ip_address}
         {WHITE}city: {RED}{city}
         {WHITE}region: {RED}{regionside}, {WHITE}({RED}{region}{WHITE})
