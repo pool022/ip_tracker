@@ -11,3 +11,5 @@
 2. now make the ip_tracker.py file executable by typing the command below
 3. `chmod +x ip_tracker.py`
 4. now run the ip_tracker.py file with `python3 Run.py`
+
+![Screenshot_2](https://user-images.githubusercontent.com/65472841/209492448-5dc714a7-e125-4fa6-a0ec-b43a320c69f1.png)
